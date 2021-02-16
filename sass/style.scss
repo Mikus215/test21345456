@@ -1,0 +1,535 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    // overflow: hidden;
+}
+
+.burger-icon{
+    display: none;
+}
+.shadow-nav{
+    background-color: rgba(0,0,0,.9);
+}
+
+.scroll-fix::before{
+    content: '';
+    display: block;
+    height: 4rem;
+    padding-top: -4rem;
+}
+.wrapper{
+    padding: 15px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+.slick-slide {
+    margin: 0 20px;
+  }
+
+//NAVIGATION ------------------------------------------------
+
+.nav{
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    width: 100%;
+    height: 4rem;
+    z-index: 100;
+    &__items{
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        font-size: 1.8em;
+        font-weight: bold;
+        ul{
+            display: flex;
+            list-style: none;
+            li{
+                position: relative;
+            }
+            li::before{
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                left: 0;
+                height: 3px;
+                width: 100%;
+                background-color: #fff;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform .3s , transform-origin.3s;
+            }
+            li:hover::before{
+                transform: scaleX(1);
+                transform-origin: right;
+            }
+            
+        }
+    }
+    &__item{
+        color: white;
+        text-decoration: none;
+        text-transform: none;
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
+// HEADER ----------------------------------------------------------------------------------
+
+.header{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/image/header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    // animation: breathing 15s .5s infinite;
+    &__home{
+        cursor: pointer;
+        padding: 5px;
+        top: 0;
+        left: 0;
+        position: fixed;
+        z-index: 1000;
+        img{
+            width: 160px;
+            height: 60px;
+        }
+    }
+    &__text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    span{
+        color: red;
+        font-size: 2.2em;
+    }
+    h1{
+        font-size: 2.2em;
+    }
+    }
+    &__about{
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 3em;
+        padding: 10px;
+        color: white;
+    }
+}
+
+
+// MAIN -------------------------------------------------------------
+
+// ABOUT -------------------------------------------------------------
+
+.main{
+    color: black;
+    &__about{
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        height: 100%;
+    }
+    &__top{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__underline{
+        width: 15%;
+        height: 3px;
+        background-color: #A19B00;
+        margin: 0 15px;
+    }
+    &__title{
+        p{
+            font-weight: bold;
+            font-size: 2em;
+        }
+    }
+    &__bottom{
+        display: flex;
+        padding-top: 50px;
+    }
+    &__text{
+        width: 50%;
+        font-size: 1.8em;
+        p{
+            width: 80%;
+            padding-bottom: 10px;
+        }
+        p:last-of-type{
+            padding-bottom: 100px;
+        }
+        
+        span{
+            color: red;
+        }
+    }
+    &__textH1{
+        font-size: 1em;
+        margin-bottom: 5px;
+    }
+    &__icons{
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__scissors{
+        font-size: 4em;
+        &--left{
+            transform: rotate(50deg);
+        }
+        &--right{
+            transform: rotate(130deg);
+        }
+    }
+    // GALERY --------------------------------------------------------------------------------------------
+    &__photos{
+        display: flex;
+        width: 50%;
+        height: 100%;
+    }
+    &__photo{
+        width: 100%;
+        img{
+            width: 70%;
+        }
+    }
+    &__gallery{
+        background-color: #F9F8F9;
+        height: 100%;
+        width: 100%;
+    }
+    &__images{
+        padding-top: 50px;
+        display: flex;
+        justify-content: space-around;
+    }
+    &__image{
+        width: 80%;
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__insta{
+        display: flex;
+        justify-content: center;
+        padding: 50px 0;
+        width: 100%;
+        &--btn{
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            background-color: #BFBFBF;
+            cursor: pointer;
+            transition: background .3s,color .3s;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        &--btn:hover{
+            background: #0076e8;;
+            color: white;
+        }
+    }
+    // PRICE --------------------------------------------------------------------------------------------
+    &__price{
+        width: 100%;
+        height: 100%;
+    }
+
+    &__prices{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+        width: 40%;
+        width: 100%;
+        height: 100%;
+    }
+    &__priceLeft,&__priceRight{
+        display: flex;
+        // justify-content: center;
+        justify-content: space-between;
+        width: 450px;
+        height: 50px;
+        font-size: 1.2em;
+        text-transform: uppercase;
+    }
+    &__nameSpanLeft{
+        margin-right: 5px;
+    }
+    &__firstPrices{
+        padding-top: 50px;
+    }
+
+    
+
+    
+// CONTACT --------------------------------------------------------------------------------------------
+    &__contact{
+        width: 100%;
+        height: 100%;
+        background-color: #F9F8F9;
+    }
+
+    &__contactBox{
+        display: flex;
+        padding-top: 50px;
+        font-size: 1.6em;
+    }
+
+    &__contactInfo{
+        width: 50%;
+        height: 100%;
+    }
+    &__contactItem{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 20px;
+        span{
+            padding-left: 30px;
+        }
+        a{
+            text-decoration: none;
+            padding: 15px;
+        }
+        .fa-facebook-square{
+            color: royalblue;
+        }
+        .fa-instagram-square{
+            color: #3f729b;
+        }
+        i{
+            font-size: 1.6em;
+        }
+    }
+    &__map{
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        height: 100%;
+    }
+    &__itemMap{
+        width: 800px;
+        height: 600px;
+    }
+    
+
+}
+// FOOTER --------------------------------------------------------------------------------------------
+
+footer{
+    display: flex;
+    justify-content: center;
+    color: black;
+    width: 100%;
+    height: 100%;
+    font-weight: bold;
+}
+
+
+// MEDIA --------------------------------------------------- NAV
+
+@media (max-width: 850px){
+    .nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        z-index: 100;
+        background-color: rgba(0,0,0,.9);
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform .5s cubic-bezier(0.75, 0.15, 0.56, 1), opacity .5s;
+        &__items{
+            ul{
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                list-style: none;
+                li{
+                    padding: 20px;
+                }
+            }
+        }
+    }
+.burger-icon{
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    font-size: 3rem;
+    display: block;
+    z-index: 1000;
+    cursor: pointer;
+}
+.nav-active{
+    transform: translateX(0);
+    opacity: 1;
+}
+.nav-black-bars{
+    color: black;
+}
+.img-black{
+    filter: brightness(0);
+}
+// HEADER -------------------------------------------------
+    
+    
+    .header{
+        &__home{
+            img{
+                width: 150px;
+                height: 60px;
+            }
+        }
+        &__about{
+            top: 80%;
+        }
+    }
+}
+@media(max-width: 950px){
+    .main{
+        &__bottom{
+            display: flex;
+            flex-direction: column;
+            padding-top: 50px;
+        }
+        &__text{
+            text-align: center;
+            width: 100%;
+            font-size: 1.4em;
+            p{
+                width: 100%;
+            }
+        }
+        
+        &__photos{
+            display: flex;
+            padding-top: 100px;
+            width: 100%;
+        }
+        &__photo{
+            width: 100%;
+            img{
+                width: 100%;
+            }
+        }
+        
+        
+    
+    }
+     
+}
+@media(max-width: 360px){
+.main__insta--btn{
+    font-size: .9em;
+}
+}
+@media(max-width: 650px){
+.main{
+    &__btns{
+        flex-direction: column;
+    }
+    &__priceBtn{
+        text-align: center;
+        padding: 10px auto;
+        margin: 10px;
+    }
+}
+footer{
+    font-size: .7em;
+}
+}
+@media(max-width: 1300px){
+.main{
+    &__contactBox{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    &__itemMap{
+        margin-top: 50px;
+        width: 600px;
+        height: 450px;
+    }
+
+    &__contactBox{
+        display: flex;
+        padding-top: 50px;
+        font-size: 1.4em;
+    }
+    
+    
+    &__contactItem{
+           i{
+            font-size: 1.4em;
+        }
+        span{
+            margin-left: 5px;
+            padding: 0;
+        }
+    }
+    }
+}
+@media(max-width: 1100px){
+.main{
+    &__firstPrices{
+        padding-top: 50px;
+    }
+    &__priceLeft,&__priceRight{
+        width: 450px;
+        font-size: 1.1em;
+        padding-top: 25px;
+    }
+    &__prices{
+        flex-direction: column;
+    }
+}
+}
+@media(max-width: 800px){
+.main{
+    &__prices{
+        flex-direction: column;
+    }
+    &__priceLeft,&__priceRight{
+        display: flex;
+        width: 300px;
+        font-size: .8em;
+    }
+    
+}
+}
+@media(max-width: 728px){
+.main{
+    &__contactSpanHours{
+        margin-top: 10px;
+    }
+}
+}
+
+
